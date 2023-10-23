@@ -1,0 +1,32 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <title>NetworkTech-Solutions - {% block title %}{% endblock %}</title>
+        
+        <link href="{% static 'cookbook/img/favicon.ico' %}" rel="icon" type="image/x-icon" >
+        
+        <!--Stylesheets-->
+        <link href="{% static 'default/styles.css' %}" rel="stylesheet">
+    </head>
+    <body>
+        
+        <!--Header-->
+        
+        {# Main content for the page #}
+        <main>
+            {% block body %}
+            {% endblock %}
+        </main>
+        
+        <!--Footer-->
+
+        {# Add additional scripts for individual pages #}
+        {% block scripts %}
+        {% endblock %}
+    </body>
+</html>
