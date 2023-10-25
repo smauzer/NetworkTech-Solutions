@@ -1,14 +1,12 @@
 {% load static %}
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hu">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
         <title>NetworkTech-Solutions - {% block title %}{% endblock %}</title>
-        
-        <link href="{% static 'cookbook/img/favicon.ico' %}" rel="icon" type="image/x-icon" >
         
         <!--Stylesheets-->
         <link href="{% static 'default/styles.css' %}" rel="stylesheet">
@@ -16,7 +14,8 @@
     <body>
         
         <!--Header-->
-        
+        <p>Fejléc</p>
+
         {# Main content for the page #}
         <main>
             {% block body %}
@@ -24,6 +23,7 @@
         </main>
         
         <!--Footer-->
+        <p>Lábléc</p>
 
         {# Add additional scripts for individual pages #}
         {% block scripts %}
