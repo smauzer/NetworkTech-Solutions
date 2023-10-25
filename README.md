@@ -16,7 +16,7 @@
 
 ## Cég leírása
 
-![NetworkTech-Solutions Logo](/default/static/default/img/nts-logo.jpg)
+![NetworkTech-Solutions Logo](/default/static/default/img/nts-logo.png)
 
 A cég szerverekkel, felhőszolgáltatások, illetve teljes hálózat megtervezésével és kivitelezésével foglalkozik. Ezeken túl a Web-oldalon hálózati eszközök is vásárolhatóak.
 A NetworkTech Solutions Nyugat-Magyarország legnagyobb és legmodernebb vállalata. A legmodernebb, legkorszerűbb eszközökkel dolgozunk 400 kollégánkkal közel 15 telephelyen elosztva. Ennyi telephellyel az ország nyugati részének egészét lefedjük, később Kelet-Magyarországra, illetve Ausztria és Szlovákia felé is nyitni szeretnénk.
