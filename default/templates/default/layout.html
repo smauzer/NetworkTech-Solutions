@@ -6,15 +6,30 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
-        <title>NetworkTech-Solutions - {% block title %}{% endblock %}</title>
+        <link rel="icon" type="image/x-icon" href="{% static "default/img/favicon.ico" %}">
+        <title>NTS - {% block title %}{% endblock %}</title>
         
         <!--Stylesheets-->
-        <link href="{% static 'default/styles.css' %}" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="{% static 'default/styles.css' %}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     </head>
     <body>
         
         <!--Header-->
-        <p>Fejléc</p>
+        <header id="nav-wrapper">
+            <nav id="nav">
+                <div class="nav left">
+                    <span class="gradient skew"><h1 class="logo un-skew"><a href="/"><img src="{% static "default/img/NTS-Logo.svg" %}" id="logo-img"><span id="logo-text">NetworkTech-Solutions</span></a></h1></span>
+                    <button id="menu" class="btn-nav"><span class="fas fa-bars"></span></button>
+                </div>
+                <div class="nav right">
+                    <a href="/" class="nav-link {% if request.path == "/" %}active{% endif %}"><span class="nav-link-span"><span class="u-nav">Főoldal</span></span></a>
+                    <a href="/aruhaz" class="nav-link {% if request.path == "/aruhaz" %}active{% endif %}"><span class="nav-link-span"><span class="u-nav">WebÁruház</span></span></a>
+                    <a href="/rolunk" class="nav-link {% if request.path == "/rolunk" %}active{% endif %}"><span class="nav-link-span"><span class="u-nav">Rólunk</span></span></a>
+                    <a href="/kapcsolat" class="nav-link {% if request.path == "/kapcsolat" %}active{% endif %}"><span class="nav-link-span"><span class="u-nav">Kapcsolat</span></span></a>
+                </div>
+            </nav>
+        </header>
 
         {# Main content for the page #}
         <main>
@@ -25,6 +40,9 @@
         <!--Footer-->
         <p>Lábléc</p>
 
+        <!--Scripts-->
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="{% static "default/main.js" %}"></script>
         {# Add additional scripts for individual pages #}
         {% block scripts %}
         {% endblock %}
