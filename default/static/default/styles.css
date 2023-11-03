@@ -250,3 +250,17 @@ header #center-div h3 {
     font-size: 1.25rem;
     text-transform: uppercase;
 }
+
+@media (max-width: 500px) {
+    header #center-div h2 {
+        line-height: 3rem;
+    }
+
+    header #center-div h3 {
+        margin-top: 1rem;
+    }
+
+    header .responsive-remove {
+        display: none;
+    }
+}
