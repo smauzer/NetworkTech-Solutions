@@ -16,19 +16,28 @@
     <body>
         
         <!--Header-->
-        <header id="nav-wrapper">
-            <nav id="nav">
-                <div class="nav left">
-                    <span class="gradient skew"><h1 class="logo un-skew"><a href="/"><img src="{% static "default/img/NTS-Logo.svg" %}" id="logo-img"><span id="logo-text">NetworkTech-Solutions</span></a></h1></span>
-                    <button id="menu" class="btn-nav"><span class="fas fa-bars"></span></button>
-                </div>
-                <div class="nav right">
-                    <a href="/" class="nav-link {% if request.path == "/" %}active{% endif %}"><span class="nav-link-span"><span class="u-nav">Főoldal</span></span></a>
-                    <a href="/aruhaz" class="nav-link {% if request.path == "/aruhaz" %}active{% endif %}"><span class="nav-link-span"><span class="u-nav">WebÁruház</span></span></a>
-                    <a href="/rolunk" class="nav-link {% if request.path == "/rolunk" %}active{% endif %}"><span class="nav-link-span"><span class="u-nav">Rólunk</span></span></a>
-                    <a href="/kapcsolat" class="nav-link {% if request.path == "/kapcsolat" %}active{% endif %}"><span class="nav-link-span"><span class="u-nav">Kapcsolat</span></span></a>
-                </div>
-            </nav>
+        <header>
+            <div id="nav-wrapper">
+                <nav id="nav">
+                    <div class="nav left">
+                        <span class="gradient skew"><h1 class="logo un-skew"><a href="/"><img src="{% static "default/img/NTS-Logo.svg" %}" id="logo-img"><span id="logo-text">NTS</span></a></h1></span>
+                        <button id="menu" class="btn-nav"><span class="fas fa-bars"></span></button>
+                    </div>
+                    <div class="nav right">
+                        <a href="/" class="nav-link {% if request.path == "/" %}active{% endif %}"><span class="nav-link-span"><span class="u-nav">Főoldal</span></span></a>
+                        <a href="/aruhaz" class="nav-link {% if request.path == "/aruhaz" %}active{% endif %}"><span class="nav-link-span"><span class="u-nav">WebÁruház</span></span></a>
+                        <a href="/rolunk" class="nav-link {% if request.path == "/rolunk" %}active{% endif %}"><span class="nav-link-span"><span class="u-nav">Rólunk</span></span></a>
+                        <a href="/kapcsolat" class="nav-link {% if request.path == "/kapcsolat" %}active{% endif %}"><span class="nav-link-span"><span class="u-nav">Kapcsolat</span></span></a>
+                    </div>
+                </nav>
+            </div>
+            <div id="header-img" style="background-image: url('{% static "default/img/header-bg.jpg" %}')"></div>
+            <div class="overlay-grey"></div>
+            <div id="center-div">
+                <img class="logo" src="{% static "/default/img/NTS-Logo.svg" %}" alt="NTS Logo">
+                <h2>NetworkTech-Solutions</h2>
+                <h3>Hálózat Mindenhol, Mindenkinek</h3>
+            </div>
         </header>
 
         {# Main content for the page #}
