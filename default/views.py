@@ -7,7 +7,11 @@
 """
 from django.shortcuts import render
 
-# Index page
+from . import utils
+import json
+
+
+# - Views
 def index_view(request):
     return render(request, "default/index.html")
 
@@ -21,7 +25,12 @@ def contact_view(request):
 
 
 def shop_view(request):
-    return render(request, "default/aruhaz.html")
+
+    context = {
+        "products": json.loads(utils.get_all_products(["id", "name", "photo", "price"]))
+    }
+
+    return render(request, "default/aruhaz.html", context)
 
 
 def product_view(request, product_name):
