@@ -1,6 +1,4 @@
 from .models import Product, Category
-from django.core import serializers
-import json
 
 from django.forms.models import model_to_dict
 
@@ -37,3 +35,9 @@ def get_product(name: str):
     product_dict["photo"] = product.photo.url
 
     return product_dict
+
+
+# Get all category names and ids
+def get_categories():
+    categories = Category.objects.values()
+    return [category for category in categories]
