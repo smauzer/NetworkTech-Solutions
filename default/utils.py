@@ -41,3 +41,18 @@ def get_product(name: str):
 def get_categories():
     categories = Category.objects.values()
     return [category for category in categories]
+
+
+# Add a product to the users cart
+def add_product_to_cart(request, product_id, quantity=1):
+    # Create cart if it does not exists
+    if not request.session.get("cart", False):
+        request.session["cart"] = []
+    
+    # If item already in cart add to the quantity
+    for i, item in enumerate(request.session["cart"]):
+        if item["id"] == product_id:
+            request.session["cart"][i]["quantity"] = item["quantity"] + quantity
+            return
+
+    request.session["cart"].append({"id":product_id, "quantity":quantity})
