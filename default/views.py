@@ -34,8 +34,9 @@ def shop_view(request):
 
 
 def product_view(request, product_name):
+
     context = {
-        "product_name": product_name
+        "product": utils.get_product(product_name)
     }
     
     return render(request, "default/termek.html", context=context)
