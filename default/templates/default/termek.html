@@ -4,5 +4,17 @@
 {% block title %} Termék {% endblock %}
 
 {% block body %}
-    <h1>Termék: {{ product_name }}</h1>
+    <div class="container">
+        <div class="termekoldal">
+            <img src="termek.jpg" alt="Termek">
+            <div class="termekszoveg">
+                <h1>Termék: {{ product_name }}</h1>
+                <p><strong>Price: $999.99</strong></p>
+                <button>Add to Cart</button>
+            </div>
+        </div>
+    </div>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eget justo at urna tristique
+        facilisis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;
+        In efficitur velit ac libero laoreet fringilla.</p>
 {% endblock %}

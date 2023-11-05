@@ -431,3 +431,46 @@ span.text {
     padding: 8px;
     margin-left: 30px;
 }
+
+ul {
+    margin-bottom: 10px;
+}
+
+.termekoldal {
+    margin-top: 50px;
+    display: flex;
+    align-items: center;
+}
+
+.termekoldal img {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    margin-right: 20px;
+}
+
+.termekszoveg {
+    flex: 1;
+}
+
+.termekszoveg h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.termekszoveg p {
+    margin-bottom: 20px;
+}
+
+.termekszoveg button {
+    background-color: #194c97;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.termekszoveg button:hover {
+    background-color: #194c97;
+}
