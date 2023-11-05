@@ -4,5 +4,77 @@
 {% block title %} Főoldal {% endblock %}
 
 {% block body %}
-    <h1>Főoldal</h1>
+    <section class="page-section">
+        <div class="text-center">
+            <h2 class="section-title">Miért válasszon minket?</h2>
+            <p class="section-subtitle">Nyugat-Magyarország legnagyobb és legmodernebb hálózati cége vagyunk!</p>
+        </div>
+        <div class="counter-cont">
+            <div class="counter">
+                <i class="fa-solid fa-person"></i>
+                <span class="number-cont"><span class="num" data-val="400" data-interval="500">000</span>+</span>
+                <span class="text">Alkalmazott</span>
+            </div>
+            <div class="counter">
+                <i class="fa-solid fa-industry"></i>
+                <span class="number-cont"><span class="num" data-val="15" data-interval="1500">00</span></span>
+                <span class="text">Telephely</span>
+            </div>
+            <div class="counter">
+                <i class="fa-solid fa-heart"></i>
+                <span class="number-cont"><span class="num" data-val="10" data-interval="1500">00</span>,000+</span>
+                <span class="text">Ügyfél</span>
+            </div>
+            <div class="counter">
+                <i class="fa-solid fa-phone"></i>
+                <span class="number-cont"><span class="num" data-val="24" data-interval="1500">00</span> órás</span>
+                <span class="text">Készenlét</span>
+            </div>
+            <div class="counter">
+                <i class="fa-solid fa-gear"></i>
+                <span class="number-cont"><span class="num" data-val="45" data-interval="1000">00</span>+ év</span>
+                <span class="text">Tapasztalat</span>
+            </div>
+        </div>
+        <div class="text-center">
+            <h3>Miden hálózatunkra teljeskörű garanciát vállalunk!</h3>
+            <a href="{% url 'about_us' %}" class="btn btn-primary">Tudjon meg többet rólunk!</a>
+        </div>
+    </section>
+
+    <section class="page-section">
+        <div class="text-center">
+            <h2 class="section-title">Szolgáltatásaink</h2>
+            <p class="section-subtitle">Szerverek, felhőszolgáltatások és minden ami hálózat!</p>
+        </div>
+        <div class="section-cont">
+            <div class="section-left">
+                <ul style="font-size: 1.3em;">
+                    <li>Hálózati infrastruktúra tervezése és kiépítése</li>
+                    <li>Hálózati eszközök beszerzése és beépítése</li>
+                        <ul></li>
+                            <li>Forgalomirányítók (Router)</li></li>
+                            <li>Kacsolók (Switch)</li></li>
+                            <li>Szerverek</li></li>
+                            <li>Adattárolók</li></li>
+                        </ul></li>
+                    <li>Hálózat biztonság ellenőrzése és fejlesztése</li>
+                    <li>Szerverszolgáltatások beállítása (Windows és Linux)</li>
+                    <li>Hibakeresés és javítás</li>
+                    <li>Általános karbantartás</li>
+                </ul>
+            </div>
+            <div class="section-right">
+                <img src="{% static 'default/img/referenciák/ref1fizikai.png' %}" alt="Referencia" width="100%">
+            </div>
+        </div>
+        <div class="text-center">
+            <a href="{% url 'about_us' %}" class="btn btn-primary">Referenciáink</a>
+        </div>
+    </section>
+
+{% endblock %}
+
+{% block scripts %}
+    <script src="{% static 'default/counter.js' %}"></script>
 {% endblock %}

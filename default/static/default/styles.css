@@ -15,11 +15,31 @@ input:focus {
 }
 
 body {
-    background: grey;
+    background: #d3d3d3;
     line-height: 1.5em;
     padding: 0;
     margin: 0;
 }
+
+.btn {
+    text-decoration: none;
+    padding: 10px 20px;
+    transition: background-color 0.3s;
+}
+
+.btn-primary {
+    background-color: #194c97;
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #4972ad;
+}
+
+li:not(:last-child) {
+    margin-bottom: 0.5em;
+}
+
 
 /*--Header--*/
 /*-Navbar-*/
@@ -110,10 +130,9 @@ h1.logo {
     margin: calc((4rem - 40px) /2) 0;
 }
 
-h1.logo a,
-a:active,
-a:hover,
-a:visited {
+nav a:active,
+nav a:hover,
+nav a:visited {
     text-decoration: none;
     color: #fff;
 }
@@ -124,15 +143,20 @@ a:visited {
     border-top: 0.5px solid #ddd;
 }
 
-a:link,
-a:visited,
-a:active {
+nav a:link,
+nav a:visited,
+nav a:active {
     text-decoration: none;
     color: #194c97;
 }
 
-a:hover {
+nav a:hover {
     text-decoration: underline;
+}
+
+h1.logo a {
+    text-decoration: none;
+    color: #fff;
 }
 
 .right {
@@ -265,11 +289,94 @@ header #center-div h3 {
     }
 }
 
+/*--Pages General--*/
+.page-section {
+    padding: 3.5rem 10vw;
+    background-color: #fff;
+    position: relative;
+}
+
+.page-section:nth-child(2n) {
+    background-color: #d3d3d3;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.section-title::before, .section-title::after {
+    content: " - ";
+}
+
+.section-title {
+    font-size: 2rem;
+    margin-top: 0;
+    margin-bottom: 0.2rem;
+}
+
+.section-subtitle {
+    font-size: 1.2rem;
+    margin-top: 0;
+}
+
+.section-cont {
+    display: flex;
+    margin-bottom: 1em;
+}
+
+.section-left, .section-right {
+    flex: 1;
+}
+
+
 .container {
     width: 80%;
     margin: 0 auto;
 }
 
+/*--Index page--*/
+/*-Counter-*/
+.counter-cont {
+    display: flex;
+    justify-content: space-around;
+    gap: 10px;
+}
+
+.counter {
+    color: #000;
+    width: 200px;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    position: relative;
+    font-size: 16px;
+    padding: 0.5em 0;
+    border-radius: 0.5em;
+    background-color: #d3d3d3;
+    border-bottom: 1em solid #194c97;
+    /* background: linear-gradient(45deg, #194c97, #4972ad); */
+}
+
+.counter-cont i {
+    font-size: 1.5em;
+    text-align: center;
+}
+
+span.number-cont {
+    text-align: center;
+    font-weight: 600;
+    font-size: 2em;
+}
+
+span.text {
+    font-size: 1.5em;
+    text-align: center;
+    font-weight: 400;
+    line-height: 0;
+}
+
+/*--Shop--*/
 .termekek {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
@@ -312,5 +419,4 @@ header #center-div h3 {
     text-align: center;
     padding: 5px 0;
     width: 100%;
-    margin-top: 30px;
 }
