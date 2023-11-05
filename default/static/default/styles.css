@@ -420,3 +420,14 @@ span.text {
     padding: 5px 0;
     width: 100%;
 }
+
+.szuro-container {
+    background-color: #f2f2f2;
+    padding: 10px;
+
+}
+
+#szuro {
+    padding: 8px;
+    margin-left: 30px;
+}
