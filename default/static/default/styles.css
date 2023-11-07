@@ -491,3 +491,94 @@ ul {
 .ref-text {
     margin: 0;
 }
+
+.kosar-termek {
+    display: flex;
+    align-items: center;
+    background-color:#d3d3d3;
+    padding: 10px;
+    border-left: 5px, #000, solid;
+    border-right: 5px, #000, solid;
+    padding-right: 100px;
+    padding-left: 50px;
+}
+
+.kosar-termek2 {
+    display: flex;
+    align-items: center;
+    background-color:#ffffff;
+    padding: 10px;
+    border-left: 5px, #000, solid;
+    border-right: 5px, #000, solid;
+    padding-right: 100px;
+    padding-left: 50px;
+}
+
+.kosar-termek img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    margin-right: 20px;
+}
+
+.kosar-termek2 img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    margin-right: 20px;
+}
+
+.termek-adatok {
+    flex: 1;
+}
+
+.termek-adatok button {
+    background-color: #194c97;
+}
+
+.kosar-termek h3 {
+    padding-right: 50px;
+}
+
+.kosar-termek2 h3 {
+    padding-right: 50px;
+}
+
+.osszeg {
+    border-top: solid;
+    border-width: 5px;
+    border-color:#4972ad;
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    background-color:#ffffff;
+    padding: 10px;
+    padding-right: 100px;
+    padding-left: 50px;
+}
+
+.osszegar {
+    flex: 1;
+    margin-right: 30px;
+}
+
+.osszeg button {
+   margin-right: 200px;
+   margin-left: 1000px;
+}
+
+.kosar button {
+    background-color: #194c97;
+    color: white;
+    border: 20px, solid, white;
+    border-radius: 10px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.kosar button:hover {
+    background-color: white;
+    border-color: #194c97;
+    color: #194c97;
+}
