@@ -474,3 +474,20 @@ ul {
 .termekszoveg button:hover {
     background-color: #194c97;
 }
+
+/*-About us-*/
+.referenc-image{
+    width: 100%;
+    height: 400px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.ref-title {
+    margin-bottom: 0;
+}
+
+.ref-text {
+    margin: 0;
+}

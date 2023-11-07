@@ -1,8 +1,121 @@
 {% extends "default/layout.html" %}
 {% load static %}
 
-{% block title %} Rólunk {% endblock %}
-
 {% block body %}
-    <h1>Rólunk</h1>
+    <section class="page-section">
+        <div class="text-center">
+            <h2 class="section-title">Rólunk</h2>
+            <p class="section-subtitle">Nyugat-Magyarország legnagyobb és legmodernebb hálózati cége vagyunk!</p>
+        </div>
+        <div class="section-cont">
+            <div class="section-left">
+                <img src={% static "default/img/NTS-Banner.png" %} alt="Networktech-Solutions Team" width="90%">
+            </div>
+            <div class="section-right">
+                <h3>Célunk</h3>
+                <p> A cégünknek sok nemes célja van. A <span style="color: #007bff; font-weight: bold;">Networktech-Solutions</span>-nél fontosnak tartjuk, hogy bárki, bárkivel, bárhol könnyen tudjon kapcsolatot tartani.
+                    Ezt a minőségi szolgáltatásainkkal támogatjuk. Számunkra fontos az emberek, barátok, családok, cégek online összekötése. Ezért is alapult meg a cégünk.
+                </p>
+                <h3>A cégről röviden</h3>
+                <p>A <span style="color: #007bff; font-weight: bold;">Networktech-Solutions</span> cég szerverekkel, felhőszolgáltatások, illetve teljes hálózat megtervezésével és kivitelezésével foglalkozik.
+                    Ezeken túl a Web-oldalon hálózati eszközök is vásárolhatóak. A NetworkTech Solutions Nyugat-Magyarország legnagyobb és legmodernebb vállalata.
+                    A legmodernebb, legkorszerűbb eszközökkel dolgozunk 400 kollégánkkal közel 15 telephelyen elosztva.
+                    Ennyi telephellyel az ország nyugati részének egészét lefedjük, később Kelet-Magyarországra, illetve Ausztria és Szlovákia felé is nyitni szeretnénk.</p>
+                <h3>Elhelyezkedés</h3>
+                <p>A <span style="color: #007bff; font-weight: bold;">Networktech-Solutions</span> Győr belvárosában található a Vidanet mellett. Ez a legfőbb állomása a cégnek. Itt közel 50 emberünk dolgozik, mivel az Ügyfélszolgálati állomásunk és
+                    a <span style="text-decoration: underline;">Szerver farmunk</span> is itt található.
+                    A győri elhelyezkedés biztosítja a szolgáltatásaink jó minőségét. Ezt a város modern infrastruktúrája is segíti.
+                </p>
+                <h3>További telephelyeink, kollégáink</h3>
+                <p>Ezen kívül 3 telephellyel rendelkezünk. Ezek Magyarország nyugati területén helyezkednek el: Mosonmagyaróvár, Sopron, Veszprém. Célunk, hogy a jövőben kelet felé is terjezkedjünk.
+                    Jelenleg a <span style="color: #007bff; font-weight: bold;">Networktech-Solutions</span> 400 munkatárssal és 25 ügyfélszolgálati csapattal rendelkezik, ami 10 HR osztályt erősít.
+                    A cégünk 10 rendszergazdával rendelkezik, akik életben tartják a céget.
+                </p>
+            </div>
+    </section>
+    <section class="page-section" id="rolunk">
+        <div class="text-center">
+            <h2 class="section-title">Referenciák</h2>
+            <p class="section-subtitle">Ha szüksége van egy hálózatra bizalommal keressen fel minket!</p>
+            <h3 class="ref-title">Audi Hungária</h3>
+            <p class="ref-text">Az Audi Hungária megbízta a cégünket, hogy az új telephelyükre egy komplex hálózatot építsünk ki.</p>
+            <div class="section-cont">
+                <div class="section-left">
+                    <h3>Fizikai topológia</h3>
+                    <div style="background-image: url('{% static 'default/img/referenciák/ref1fizikai.png' %}') ;" class="referenc-image"></div>
+                </div>
+                <div class="section-right">
+                    <h3>Logikai topológia</h3>
+                    <div style="background-image: url('{% static 'default/img/referenciák/ref1logikai.png' %}') ;" class="referenc-image"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="page-section">
+        <div class="text-center">
+            <h3 class="ref-title">Vidanet</h3>
+            <p class="ref-text">A Vidanettel közös hálózatotat telepítettünk a cég egy újonnan épült épületében.</p>
+            <div class="section-cont">
+                <div class="section-left">
+                    <h3>Fizikai topológia</h3>
+                    <div style="background-image: url('{% static 'default/img/referenciák/ref2fizikai.png' %}') ;" class="referenc-image"></div>
+                    
+                </div>
+                <div class="section-right">
+                    <h3>Logikai topológia</h3>
+                    <div style="background-image: url('{% static 'default/img/referenciák/ref2logikai.png' %}') ;" class="referenc-image"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="page-section">
+        <div class="text-center">
+            <h3 class="ref-title">Milatech corp.</h3>
+            <p class="ref-text">A Milatech corp. egy kisebb megbízással állt elénk, mi ezt is teljesítettük.</p>
+            <div class="section-cont">
+                <div class="section-left">
+                    <h3>Fizikai topológia</h3>
+                    <div style="background-image: url('{% static 'default/img/referenciák/ref3fizikai.png' %}') ;" class="referenc-image"></div>
+                    
+                </div>
+                <div class="section-right">
+                    <h3>Logikai topológia</h3>
+                    <div style="background-image: url('{% static 'default/img/referenciák/ref3logikai.png' %}') ;" class="referenc-image"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="page-section">
+        <div class="text-center">
+            <h3 class="ref-title">Winter corp.</h3>
+            <p class="ref-text">Winter János személyesen felkeresett minket, hogy tervezzünk neki egy hálózatot az új telephelyére. Az alábbi ábrákon látható az eredmény.</p>
+            <div class="section-cont">
+                <div class="section-left">
+                    <h3>Fizikai topológia</h3>
+                    <div style="background-image: url('{% static 'default/img/referenciák/ref4fizikai.png' %}') ;" class="referenc-image"></div>
+                </div>
+                <div class="section-right">
+                    <h3>Logikai topológia</h3>
+                    <div style="background-image: url('{% static 'default/img/referenciák/ref4logikai.png' %}') ;" class="referenc-image"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="page-section">
+        <div class="text-center">
+            <h3 class="ref-title">Mészáros és mészáros kft.</h3>
+            <p class="ref-text">Cégünk kormány általi megbízásokkal is foglalkozik. Itt egy újonnan épült stadion informatikai részlegje található.</p>
+            <div class="section-cont">
+                <div class="section-left">
+                    <h3>Fizikai topológia</h3>
+                    <div style="background-image: url('{% static 'default/img/referenciák/ref5fizikai.png' %}') ;" class="referenc-image"></div>
+                    
+                </div>
+                <div class="section-right">
+                    <h3>Logikai topológia</h3>
+                    <div style="background-image: url('{% static 'default/img/referenciák/ref5logikai.png' %}') ;" class="referenc-image"></div>
+                </div>
+            </div>
+        </div>
+    </section>
 {% endblock %}
