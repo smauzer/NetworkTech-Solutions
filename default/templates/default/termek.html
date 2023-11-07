@@ -4,17 +4,23 @@
 {% block title %} Termék {% endblock %}
 
 {% block body %}
-    <div class="container">
-        <div class="termekoldal" style="background-color: white;">
-            <img src="termek.jpg" alt="Termek">
-            <div class="termekszoveg">
-                <h1>Termék: {{ product_name }}</h1>
-                <p><strong>Ár: 123203210 Ft</strong></p>
-                <button>Kosárhoz adás</button>
+    <section class="page-section" id="termek">
+        <div class="section-cont">
+            <div class="section-left">
+                <p>Kategória: <strong>{{ product.category }}</strong></p>
+                <div class="product-img" style="background-image: url('{{ product.photo }}')"></div>
+                <h2>{{ product.name }}</h2>
+                <p><strong>{{ product.price }} Ft</strong></p>
+                <form>
+                    <label for="quantity">Mennyiség: </label>
+                    <input type="number" name="quantity" id="quantity" value="1" step="1" required>
+                </form>
+                <p><a class="btn btn-primary">Kosárhoz adás</a></p>
+            </div>
+            <div class="section-right">
+                <strong>Leírás:</strong>
+                <p>{{ product.description|safe }}</p>
             </div>
         </div>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eget justo at urna tristique
-            facilisis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;
-            In efficitur velit ac libero laoreet fringilla.</p>
-    </div>
+    </section>
 {% endblock %}
