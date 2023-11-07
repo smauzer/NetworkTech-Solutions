@@ -368,6 +368,30 @@ span.text {
 }
 
 /*--Shop--*/
+#cart-float {
+    z-index: 1000;
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background-color: #194c97;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    transition: background-color 0.3s;
+}
+
+#cart-float:hover {
+    background-color: #4972ad;
+}
+
+#cart-float i{
+    position: relative;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+}
+
 .termekek {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
