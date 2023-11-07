@@ -27,14 +27,14 @@ def contact_view(request):
 def shop_view(request):
 
     context = {
-        "products": json.loads(utils.get_all_products(["id", "name", "photo", "price"]))
+        "products": json.loads(utils.get_all_products(["id", "name", "photo", "price"])),
+        "categories": utils.get_categories()
     }
 
     return render(request, "default/aruhaz.html", context)
 
 
 def product_view(request, product_name):
-
     context = {
         "product": utils.get_product(product_name)
     }

@@ -4,130 +4,28 @@
 {% block title %} WebÁruház {% endblock %}
 
 {% block body %}
-    <h1>WebÁruház</h1>
-    <div class="szuro-container">
+    <section class="page-section">
+        <div class="text-center">
+            <h2 class="section-title">WebÁruház</h2>
+            <p class="section-subtitle">Csak az általunk használt prémium minőségű eszközöket forgalmazzuk!</p>
+        </div>
+        <label for="szuro">Kategória:</label>
         <select name="szuro" id="szuro">
-            <option value="osszes">Összes</option>
-            <option value="rt">Routerek</option>
-            <option value="sw">Switchek</option>
-            <option value="srv">Serverek</option>
+            <option value="0">Összes</option>
+            {% for category in categories %}
+                <option value="{{ category.id }}">{{ category.name }}</option>
+            {% endfor %}
         </select>
-    </div>
 
-    <div class="container">
-        <section class="termekek">
-            <div class="termek">
-                <img src="termek.jpg" alt="Termék">
-                <h3>Terméknév</h3>
-                <h1>A termék ára</h1>
-                <button onclick="window.location.href='termek.html';">Kosárhoz adás</button>
-            </div>
-
-            <div class="termek">
-                <img src="termek.jpg" alt="Termék">
-                <h3>Terméknév</h3>
-                <h1>A termék ára</h1>
-                <button onclick="window.location.href='termek.html';">Kosárhoz adás</button>
-            </div>
-
-            <div class="termek">
-                <img src="termek.jpg" alt="Termék">
-                <h3>Terméknév</h3>
-                <h1>A termék ára</h1>
-                <button onclick="window.location.href='termek.html';">Kosárhoz adás</button>            
-            </div>
-
-            <div class="termek">
-                <img src="termek.jpg" alt="Termék">
-                <h3>Terméknév</h3>
-                <h1>A termék ára</h1>
-                <button onclick="window.location.href='termek.html';">Kosárhoz adás</button>
-            </div>
-
-            <div class="termek">
-                <img src="termek.jpg" alt="Termék">
-                <h3>Terméknév</h3>
-                <h1>A termék ára</h1>
-                <button onclick="window.location.href='termek.html';">Kosárhoz adás</button>
-            </div>
-
-            <div class="termek">
-                <img src="termek.jpg" alt="Termék">
-                <h2>Terméknév</h2>
-                <h1>A termék ára</h1>
-                <button onclick="window.location.href='termek.html';">Kosárhoz adás</button>
-            </div>
-
-            <div class="termek">
-                <img src="termek.jpg" alt="Termék">
-                <h3>Terméknév</h3>
-                <h1>A termék ára</h1>
-                <button onclick="window.location.href='termek.html';">Kosárhoz adás</button>
-            </div>
-
-            <div class="termek">
-                <img src="termek.jpg" alt="Termék">
-                <h3>Terméknév</h3>
-                <h1>A termék ára</h1>
-                <button onclick="window.location.href='termek.html';">Kosárhoz adás</button>
-            </div>
-
-            <div class="termek">
-                <img src="termek.jpg" alt="Termék">
-                <h3>Terméknév</h3>
-                <h1>A termék ára</h1>
-                <button onclick="window.location.href='termek.html';">Kosárhoz adás</button>
-            </div>
-
-            <div class="termek">
-                <img src="termek.jpg" alt="Termék">
-                <h3>Terméknév</h3>
-                <h1>A termék ára</h1>
-                <button onclick="window.location.href='termek.html';">Kosárhoz adás</button>
-            </div>
-
-            <div class="termek">
-                <img src="termek.jpg" alt="Termék">
-                <h3>Terméknév</h3>
-                <h1>A termék ára</h1>
-                <button onclick="window.location.href='termek.html';">Kosárhoz adás</button>            
-            </div>
-
-            <div class="termek">
-                <img src="termek.jpg" alt="Termék">
-                <h3>Terméknév</h3>
-                <h1>A termék ára</h1>
-                <button onclick="window.location.href='termek.html';">Kosárhoz adás</button>
-            </div>
-
-            <div class="termek">
-                <img src="termek.jpg" alt="Termék">
-                <h3>Terméknév</h3>
-                <h1>A termék ára</h1>
-                <button onclick="window.location.href='termek.html';">Kosárhoz adás</button>
-            </div>
-
-            <div class="termek">
-                <img src="termek.jpg" alt="Termék">
-                <h2>Terméknév</h2>
-                <h1>A termék ára</h1>
-                <button onclick="window.location.href='termek.html';">Kosárhoz adás</button>
-            </div>
-
-            <div class="termek">
-                <img src="termek.jpg" alt="Termék">
-                <h3>Terméknév</h3>
-                <h1>A termék ára</h1>
-                <button onclick="window.location.href='termek.html';">Kosárhoz adás</button>
-            </div>
-
-            <div class="termek">
-                <img src="termek.jpg" alt="Termék">
-                <h3>Terméknév</h3>
-                <h1>A termék ára</h1>
-                <button onclick="window.location.href='termek.html';">Kosárhoz adás</button>
-            </div>
-
-        </section>
-    </div>
+        <div class="termekek">
+            {% for product in products %}
+                <div class="termek">
+                    <div class="product-image" style="background-image: url('/media/{{ product.photo }}')"></div>
+                        <a class="product-name" href="{% url 'product' product_name=product.name %}"><h3>{{ product.name }}</h3></a>
+                        <h2>{{ product.price }} FT</h2>
+                    <a class="btn btn-primary">Kosárhoz adás</a>
+                </div>
+            {% endfor %}
+        </div>
+    </section>
 {% endblock %}
