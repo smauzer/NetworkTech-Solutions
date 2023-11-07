@@ -25,7 +25,7 @@
                     </div>
                     <div class="nav right">
                         <a href="/" class="nav-link {% if request.path == "/" %}active{% endif %}"><span class="nav-link-span"><span class="u-nav">Főoldal</span></span></a>
-                        <a href="/aruhaz" class="nav-link {% if request.path == "/aruhaz" %}active{% endif %}"><span class="nav-link-span"><span class="u-nav">WebÁruház</span></span></a>
+                        <a href="/aruhaz" class="nav-link {% if request.path != "/" and request.path != "/rolunk" and request.path != "/kapcsolat" %}active{% endif %}"><span class="nav-link-span"><span class="u-nav">WebÁruház</span></span></a>
                         <a href="/rolunk" class="nav-link {% if request.path == "/rolunk" %}active{% endif %}"><span class="nav-link-span"><span class="u-nav">Rólunk</span></span></a>
                         <a href="/kapcsolat" class="nav-link {% if request.path == "/kapcsolat" %}active{% endif %}"><span class="nav-link-span"><span class="u-nav">Kapcsolat</span></span></a>
                     </div>
