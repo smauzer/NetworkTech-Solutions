@@ -43,6 +43,12 @@ def get_product(name: str):
     return product_dict
 
 
+def get_products_by_category(category_name: str, fields):
+    products = Product.objects.filter(category=Category.objects.get(name=category_name)).values_list(*fields)
+
+    return product_objects_to_json(products, fields)
+
+
 # Get all category names and ids
 def get_categories():
     categories = Category.objects.values()

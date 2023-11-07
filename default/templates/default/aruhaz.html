@@ -4,16 +4,16 @@
 {% block title %} WebÁruház {% endblock %}
 
 {% block body %}
-    <section class="page-section">
+    <section class="page-section" id="termekek">
         <div class="text-center">
             <h2 class="section-title">WebÁruház</h2>
             <p class="section-subtitle">Csak az általunk használt prémium minőségű eszközöket forgalmazzuk!</p>
         </div>
         <label for="szuro">Kategória:</label>
         <select name="szuro" id="szuro">
-            <option value="0">Összes</option>
+            <option value="-1" {% if selected_category == -1 %}selected{% endif %}>Összes</option>
             {% for category in categories %}
-                <option value="{{ category.id }}">{{ category.name }}</option>
+                <option value="{{ category.name }}" {% if selected_category == category.id %}selected{% endif %}>{{ category.name }}</option>
             {% endfor %}
         </select>
 
@@ -28,4 +28,8 @@
             {% endfor %}
         </div>
     </section>
+{% endblock %}
+
+{% block scripts %}
+    <script src="{% static 'default/shop.js' %}"></script>
 {% endblock %}

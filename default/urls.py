@@ -16,6 +16,7 @@ urlpatterns = [
     path('rolunk', views.about_us_view, name="about_us"),
     path('kapcsolat', views.contact_view, name="contact"),
     path('aruhaz', views.shop_view, name="shop"),
+    path('aruhaz/kategoriak/<str:category>', views.shop_category_view, name="shop_category"),
     path('termekek/<str:product_name>', views.product_view, name="product"),
     path('kosar', views.cart_view, name="cart"),
     path('fizetes', views.payment_view, name="payment"),

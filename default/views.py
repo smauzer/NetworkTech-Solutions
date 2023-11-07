@@ -5,9 +5,10 @@
     @website: https://github.com/nagynooel
     ©2023 Noel Nagy - All rights reserved.
 """
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 from . import utils
+from .models import Category
 import json
 
 
@@ -28,7 +29,22 @@ def shop_view(request):
 
     context = {
         "products": json.loads(utils.get_all_products(["id", "name", "photo", "price"])),
-        "categories": utils.get_categories()
+        "categories": utils.get_categories(),
+        "selected_category": -1
+    }
+
+    return render(request, "default/aruhaz.html", context)
+
+def shop_category_view(request, category: str):
+    try:
+        category_object = Category.objects.get(name=category)
+    except Category.DoesNotExist as e:
+        return redirect("shop")
+
+    context = {
+        "products": json.loads(utils.get_products_by_category(category_object.name,["id", "name", "photo", "price"])),
+        "categories": utils.get_categories(),
+        "selected_category": category_object.id
     }
 
     return render(request, "default/aruhaz.html", context)

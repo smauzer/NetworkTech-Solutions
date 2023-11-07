@@ -5,10 +5,6 @@
     font-family: "Saira Semi Condensed", sans-serif;
 }
 
-html {
-    scroll-behavior: smooth;
-}
-
 button:focus,
 input:focus {
     outline: 0;
