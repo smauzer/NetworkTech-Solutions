@@ -61,7 +61,13 @@ def product_view(request, product_name):
 
 
 def cart_view(request):
-    return render(request, "default/kosar.html")
+
+    context = {
+        "cart": utils.get_cart(request),
+        "total_price": utils.get_total_price(request)
+    }
+
+    return render(request, "default/kosar.html", context=context)
 
 
 def payment_view(request):
@@ -77,5 +83,9 @@ def order_status_view(request, order_number):
 
 # Api
 def add_to_cart(request, product_id: int, quantity: int):
+    utils.add_product_to_cart(request, product_id, quantity)
+    return redirect("shop")
+
+def remove_from_cart(request, product_id: int):
     utils.add_product_to_cart(request, product_id, quantity)
     return redirect("shop")

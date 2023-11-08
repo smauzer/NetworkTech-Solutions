@@ -33,6 +33,15 @@ body {
     background-color: #4972ad;
 }
 
+.btn-danger {
+    background-color: #FF3232;
+    color: white;
+}
+
+.btn-danger:hover {
+    background-color: #FF6F6F;
+}
+
 li:not(:last-child) {
     margin-bottom: 0.5em;
 }
@@ -487,25 +496,11 @@ ul {
     padding-left: 50px;
 }
 
-.kosar-termek2 {
-    display: flex;
-    align-items: center;
+.kosar-termek:nth-child(2n) {
     background-color:#ffffff;
-    padding: 10px;
-    border-left: 5px, #000, solid;
-    border-right: 5px, #000, solid;
-    padding-right: 100px;
-    padding-left: 50px;
 }
 
 .kosar-termek img {
-    width: 100px;
-    height: 100px;
-    object-fit: cover;
-    margin-right: 20px;
-}
-
-.kosar-termek2 img {
     width: 100px;
     height: 100px;
     object-fit: cover;
@@ -521,10 +516,6 @@ ul {
 }
 
 .kosar-termek h3 {
-    padding-right: 50px;
-}
-
-.kosar-termek2 h3 {
     padding-right: 50px;
 }
 

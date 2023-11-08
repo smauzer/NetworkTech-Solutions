@@ -72,3 +72,48 @@ def add_product_to_cart(request, product_id, quantity=1):
 
     cart.append({"id":product_id, "quantity":quantity})
     request.session["cart"] = cart
+
+
+# Get all products from the users cart
+def get_cart(request):
+    cart = request.session.get("cart", False)
+
+    if not cart:
+        cart = []
+        return cart
+    
+    products_in_cart = []
+
+    # Get information about the items in the cart
+    for product in cart:
+        name = Product.objects.get(id=product["id"]).name
+        product_info = get_product(name)
+        # Add quantity
+        product_info["quantity"] = product["quantity"]
+        products_in_cart.append(product_info)
+    
+    return products_in_cart
+
+
+# Get total price of cart
+def get_total_price(request):
+    cart = get_cart(request)
+
+    total_price = 0
+    for product in cart:
+        total_price += int(product["price"]) * int(product["quantity"])
+    
+    return total_price
+
+
+# Remove product from cart and return new total price
+def remove_from_cart(request, id):
+    cart = request.session.get("cart", False)
+
+    if not cart:
+        return 0
+    
+    cart = [i for i in cart if not (i['id'] == id)]
+    
+    request.session["cart"] = cart
+    return get_total_price()
