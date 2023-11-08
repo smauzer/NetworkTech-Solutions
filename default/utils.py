@@ -62,9 +62,13 @@ def add_product_to_cart(request, product_id, quantity=1):
         request.session["cart"] = []
     
     # If item already in cart add to the quantity
-    for i, item in enumerate(request.session["cart"]):
+    cart = request.session["cart"]
+
+    for i, item in enumerate(cart):
         if item["id"] == product_id:
-            request.session["cart"][i]["quantity"] = item["quantity"] + quantity
+            cart[i]["quantity"] = item["quantity"] + quantity
+            request.session["cart"] = cart
             return
 
-    request.session["cart"].append({"id":product_id, "quantity":quantity})
+    cart.append({"id":product_id, "quantity":quantity})
+    request.session["cart"] = cart

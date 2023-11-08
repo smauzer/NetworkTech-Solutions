@@ -14,6 +14,8 @@ import json
 
 # - Views
 def index_view(request):
+    if not request.session.get("cart", False):
+        request.session["cart"] = []
     return render(request, "default/index.html")
 
 
@@ -72,3 +74,8 @@ def order_status_view(request, order_number):
     }
 
     return render(request, "default/rendeles-allapota.html", context=context)
+
+# Api
+def add_to_cart(request, product_id: int, quantity: int):
+    utils.add_product_to_cart(request, product_id, quantity)
+    return redirect("shop")

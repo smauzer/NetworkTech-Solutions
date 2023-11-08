@@ -23,7 +23,7 @@
                     <div class="product-image" style="background-image: url('/media/{{ product.photo }}')"></div>
                         <a class="product-name" href="{% url 'product' product_name=product.name %}#termek"><h3>{{ product.name }}</h3></a>
                         <h2>{{ product.price }} FT</h2>
-                    <a class="btn btn-primary">Kosárhoz adás</a>
+                    <a href="{% url 'add_to_cart' product_id=product.id quantity=1 %}" class="btn btn-primary">Kosárhoz adás</a>
                 </div>
             {% endfor %}
         </div>
