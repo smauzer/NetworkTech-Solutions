@@ -22,20 +22,20 @@
             </div>
             <div class="section-right">
                 <h2>Kapcsolati Űrlap</h2>
-                <form action="#" method="POST" class="kapcs-label">
-                    <label class="kapcs-label" for="name">Név: </label>
-                    <input class="inp-border" type="text" id="name" name="name" size="35" required autofocus>
+                <form action="#" method="POST" id="contact-form">
+                    <label class="kapcs-label" for="name">Név:</label>
+                    <input class="form-inp" type="text" id="name" name="name" required autofocus>
 
-                    <label for="email">Email: </label>
-                    <input class="inp-border" type="email" id="email" name="email" size="35" required>
+                    <label for="email">Email:</label>
+                    <input class="form-inp" type="email" id="email" name="email" required>
 
-                    <label for="phone">Telefon: </label>
-                    <input class="inp-border" type="tel" id="phone" name="phone" size="35">
+                    <label for="subject">Tárgy:</label>
+                    <input class="form-inp" type="text" id="subject" name="subject">
                 
-                    <label for="message">Üzenet: </label>
-                    <textarea class="inp-border" id="message" name="message" rows="5" cols="100" wrap="hard" placeholder="Az üzenetét ide írja!" required></textarea>
+                    <label for="message">Üzenet:</label>
+                    <textarea class="form-inp" id="message" name="message" placeholder="Az üzenetét ide írja!" required></textarea>
 
-                    <button type="submit" class="submit-button btn btn-primary">Küldés</button>
+                    <input type="submit" class="btn btn-primary" value="Küldés">
                 </form>
             </div>
         </div>

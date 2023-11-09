@@ -559,15 +559,21 @@ ul {
 }
 
 /**/
-.kapcs-label{
-    width: 100px;
-    padding: 25;
+form {
+    width: 100%;
+    padding: 1rem;
+    background-color: #d3d3d3;
 }
 
-.inp-border{
-    border: 2px solid black;
-    border-radius: 4px;
-    box-shadow: 2px 2px 2px #444;
+form input[type="submit"] {
+    margin-top: 1rem;
+    border: none;
+}
+
+.form-inp {
+    display: block;
+    width: 100%;
+    resize: vertical;
 }
 
 /*-Payment-*/
