@@ -557,3 +557,32 @@ ul {
     border-color: #194c97;
     color: #194c97;
 }
+
+/**/
+.kapcs-label{
+    width: 100px;
+    padding: 25;
+}
+
+.inp-border{
+    border: 2px solid black;
+    border-radius: 4px;
+    box-shadow: 2px 2px 2px #444;
+}
+
+/*-Payment-*/
+.fiz-input{
+    width: 250px;
+    display: inline-block;
+    margin: 5px;
+    padding: 10px;
+}
+
+.fiz-border{
+    border: 2px solid #194c97;
+    border-radius: 3px;
+    background-color: aqua;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+}

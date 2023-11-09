@@ -116,4 +116,4 @@ def remove_from_cart(request, id):
     cart = [i for i in cart if not (i['id'] == id)]
     
     request.session["cart"] = cart
-    return get_total_price()
+    return get_total_price(request)

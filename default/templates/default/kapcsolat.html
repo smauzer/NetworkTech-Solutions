@@ -4,5 +4,41 @@
 {% block title %} Kapcsolat {% endblock %}
 
 {% block body %}
-    <h1>Kapcsolat</h1>
+    <section class="kapcs-banner page-section">
+        <div class="text-center">
+            <h2 class="section-title">Kapcsolat</h2>
+            <p class="section-subtitle">Lépjen velünk kapcsolatba!</p>
+        </div>
+        <div class="section-cont">
+            <div class="section-left">
+                <h2>Elérhetőség</h2>
+                <ul>
+                    <li>Networktech-Solutions</li>
+                    <li>Orgona utca 1.</li>
+                    <li>Győr, 9006</li>
+                    <li>Telefon: <a href="tel:1234567890">06 20 123 4567</a></li>
+                    <li>Email: <a href="mailto:info@example.com">Networktech-Solutions@gmail.com</a></li>
+                </ul>
+            </div>
+            <div class="section-right">
+                <h2>Kapcsolati Űrlap</h2>
+                <form action="#" method="POST" class="kapcs-label">
+                    <label class="kapcs-label" for="name">Név: </label>
+                    <input class="inp-border" type="text" id="name" name="name" size="35" required autofocus>
+
+                    <label for="email">Email: </label>
+                    <input class="inp-border" type="email" id="email" name="email" size="35" required>
+
+                    <label for="phone">Telefon: </label>
+                    <input class="inp-border" type="tel" id="phone" name="phone" size="35">
+                
+                    <label for="message">Üzenet: </label>
+                    <textarea class="inp-border" id="message" name="message" rows="5" cols="100" wrap="hard" placeholder="Az üzenetét ide írja!" required></textarea>
+
+                    <button type="submit" class="submit-button btn btn-primary">Küldés</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
 {% endblock %}

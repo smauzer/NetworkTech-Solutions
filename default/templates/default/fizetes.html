@@ -4,5 +4,38 @@
 {% block title %} Fizetés {% endblock %}
 
 {% block body %}
-    <h1>Fizetés</h1>
+    <section class="page-section">
+        <div class="text-center">
+            <h2 class="section-title">Fizetés</h2>
+            <p class="section-subtitle">Fizetés kártyával.</p>
+        </div>
+        <div class="section-cont">
+            <div class="section-left">
+                
+                <form action="#" method="POST">
+
+                    <div class="text-center fiz-border">
+                        
+                        <label for="Name">Név: </label>
+                        <input class="fiz-input" type="text" id="name" name="name" size="35" placeholder="A bankártyán lévő név." required autofocus>
+
+                        <label for="Card number">Kártyaszám: </label>
+                        <input class="fiz-input" type="text" size="35" placeholder="xxxx-xxxx-xxxx-xxxx" required>
+
+                        <label for="message">Lejárat: </label>
+                        <input class="fiz-input" type="text" size="35" placeholder="HÓ/ÉV" required>
+                        
+                        <label for="Delivery Address">Szállítási cím: </label>
+                        <input class="fiz-input" type="text" size="35" required>
+                        
+                        <label  for="Billing Address">Számlázási cím: </label>
+                        <input class="fiz-input" type="text" size="35" required>
+                    
+                        
+                    <button type="submit" class="submit-button btn btn-primary">Fizetés</button>
+                </form>
+                </div>
+            </div>
+        </div>
+    </section>
 {% endblock %}
