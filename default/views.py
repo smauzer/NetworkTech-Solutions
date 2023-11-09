@@ -5,7 +5,7 @@
     @website: https://github.com/nagynooel
     ©2023 Noel Nagy - All rights reserved.
 """
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, HttpResponse
 
 from . import utils
 from .models import Category
@@ -87,5 +87,4 @@ def add_to_cart(request, product_id: int, quantity: int):
     return redirect("shop")
 
 def remove_from_cart(request, product_id: int):
-    utils.add_product_to_cart(request, product_id, quantity)
-    return redirect("shop")
+    return HttpResponse(utils.remove_product_from_cart(request, product_id))

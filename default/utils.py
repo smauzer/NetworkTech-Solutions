@@ -107,7 +107,7 @@ def get_total_price(request):
 
 
 # Remove product from cart and return new total price
-def remove_from_cart(request, id):
+def remove_product_from_cart(request, id):
     cart = request.session.get("cart", False)
 
     if not cart:

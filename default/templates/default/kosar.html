@@ -19,16 +19,20 @@
                     </div>
                     <h3><strong>{{ product.price }} Ft</strong></h3>
                     <p style="margin-right: 1rem"><input type="number" value="{{ product.quantity }}" min="1" style="width: 3rem"> db</p>
-                    <a class="btn btn-danger">Eltávolítás</a>
+                    <a class="btn btn-danger remove-cart-btn" data-product-id="{{ product.id }}">Eltávolítás</a>
                 </div>
             {% endfor %}
             <div class="osszeg">
                 <div class="osszegar">
                     <h2>Végösszeg:</h2>
                 </div>
-                <h2 style="margin-right: 1rem"><strong>{{ total_price }} Ft</strong></h2>
+                <h2 style="margin-right: 1rem"><strong id="total-price">{{ total_price }} Ft</strong></h2>
                 <a href="{% url 'payment' %}" class="btn btn-primary">Fizetés</a>
             </div>
         </div>
     </section>
+{% endblock %}
+
+{% block scripts %}
+    <script src="{% static 'default/cart.js' %}"></script>
 {% endblock %}
