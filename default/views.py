@@ -54,7 +54,8 @@ def shop_category_view(request, category: str):
 
 def product_view(request, product_name):
     context = {
-        "product": utils.get_product(product_name)
+        "product": utils.get_product(product_name),
+        "in_cart": utils.in_cart(request, product_name)
     }
     
     return render(request, "default/termek.html", context=context)

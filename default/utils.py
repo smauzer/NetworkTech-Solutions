@@ -117,3 +117,15 @@ def remove_product_from_cart(request, id):
     
     request.session["cart"] = cart
     return get_total_price(request)
+
+
+# Check if a product is in cart and return quantity if it is in it
+def in_cart(request, product_name):
+    cart = get_cart(request)
+    product_id = Product.objects.get(name=product_name).id
+
+    for product in cart:
+        if product["id"] == product_id:
+            return product["quantity"]
+    
+    return False

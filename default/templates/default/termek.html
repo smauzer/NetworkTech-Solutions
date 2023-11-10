@@ -7,15 +7,21 @@
     <section class="page-section" id="termek">
         <div class="section-cont">
             <div class="section-left">
+
                 <p>Kategória: <strong>{{ product.category }}</strong></p>
                 <div class="product-img" style="background-image: url('{{ product.photo }}')"></div>
                 <h2>{{ product.name }}</h2>
                 <p><strong>{{ product.price }} Ft</strong></p>
+                <div id="in_cart_placeholder">
+                {% if in_cart != False %}
+                    <p style="color: green; font-weight: bold">Kosárban: <span id="in_cart_quantity">{{ in_cart }}</span></p>
+                {% endif %}
+                </div>
                 <form>
                     <label for="quantity">Mennyiség: </label>
                     <input type="number" name="quantity" id="quantity" value="1" step="1" required>
                 </form>
-                <p><a class="btn btn-primary">Kosárhoz adás</a></p>
+                <p><a class="btn btn-primary" id="add_to_cart_btn" data-product-id="{{ product.id }}">Kosárhoz adás</a></p>
             </div>
             <div class="section-right">
                 <strong>Leírás:</strong>
@@ -26,4 +32,8 @@
     <a href="{% url 'cart' %}" id="cart-float">
         <i class="fa-solid fa-cart-shopping"></i>
     </a>
+{% endblock %}
+
+{% block scripts %}
+    <script src="{% static 'default/product.js' %}"></script>
 {% endblock %}

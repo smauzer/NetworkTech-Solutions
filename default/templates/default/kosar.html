@@ -15,7 +15,7 @@
                     <img src="{{ product.photo }}" alt="Termek">
                     <div class="termek-adatok">
                         <p>Kategória: {{ product.category }}</p>
-                        <h2>{{ product.name }}</h2>
+                        <h2><a href="{% url 'product' product_name=product.name %}">{{ product.name }}</a></h2>
                     </div>
                     <h3><strong>{{ product.price }} Ft</strong></h3>
                     <p style="margin-right: 1rem"><input type="number" value="{{ product.quantity }}" min="1" style="width: 3rem"> db</p>
