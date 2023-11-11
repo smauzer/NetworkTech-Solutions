@@ -29,5 +29,6 @@ urlpatterns = [
     # Api
     path('kosar/hozzad/<int:product_id>/<negative_int:quantity>', views.add_to_cart, name="add_to_cart"),
     path('kosar/eltavolit/<int:product_id>', views.remove_from_cart, name="remove_from_cart"),
+    path('kosar/termekek-szama', views.count_cart_items, name="count_cart_items"),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

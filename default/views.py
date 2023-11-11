@@ -32,7 +32,8 @@ def shop_view(request):
     context = {
         "products": json.loads(utils.get_all_products(["id", "name", "photo", "price"])),
         "categories": utils.get_categories(),
-        "selected_category": -1
+        "selected_category": -1,
+        "items_in_cart": len(utils.get_cart(request))
     }
 
     return render(request, "default/aruhaz.html", context)
@@ -46,7 +47,8 @@ def shop_category_view(request, category: str):
     context = {
         "products": json.loads(utils.get_products_by_category(category_object.name,["id", "name", "photo", "price"])),
         "categories": utils.get_categories(),
-        "selected_category": category_object.id
+        "selected_category": category_object.id,
+        "items_in_cart": len(utils.get_cart(request))
     }
 
     return render(request, "default/aruhaz.html", context)
@@ -55,7 +57,8 @@ def shop_category_view(request, category: str):
 def product_view(request, product_name):
     context = {
         "product": utils.get_product(product_name),
-        "in_cart": utils.in_cart(request, product_name)
+        "in_cart": utils.in_cart(request, product_name),
+        "items_in_cart": len(utils.get_cart(request))
     }
     
     return render(request, "default/termek.html", context=context)
@@ -88,3 +91,6 @@ def add_to_cart(request, product_id: int, quantity: int):
 
 def remove_from_cart(request, product_id: int):
     return HttpResponse(utils.remove_product_from_cart(request, product_id))
+
+def count_cart_items(request):
+    return HttpResponse(len(utils.get_cart(request)))

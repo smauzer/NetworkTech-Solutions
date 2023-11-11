@@ -30,6 +30,7 @@
     </section>
     <a href="{% url 'cart' %}" id="cart-float">
         <i class="fa-solid fa-cart-shopping"></i>
+        <span id="cart-item-count">{{ items_in_cart }}</span>
     </a>
 {% endblock %}
 

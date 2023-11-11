@@ -401,6 +401,19 @@ span.text {
     color: white;
 }
 
+#cart-item-count {
+    position: absolute;
+    bottom: -0.3rem;
+    left: -0.3rem;
+    background-color: red;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+}
+
 .termekek {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));

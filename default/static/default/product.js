@@ -1,7 +1,13 @@
 $("#add_to_cart_btn").click(function(){
     const quantity = parseInt($("#quantity").val())
     const product_id = $("#add_to_cart_btn").data("product-id")
-    fetch("/kosar/hozzad/" + product_id + "/" + quantity)
+    fetch("/kosar/hozzad/" + product_id + "/" + quantity).then(function(){
+        fetch("/kosar/termekek-szama").then(function (response){
+            response.json().then(function (response) {
+                $("#cart-item-count").text(response)
+            })
+        })
+    })
 
     const cart_quantity = $("#in_cart_quantity")
 
