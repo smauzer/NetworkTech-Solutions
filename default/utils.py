@@ -55,25 +55,6 @@ def get_categories():
     return [category for category in categories]
 
 
-# Add a product to the users cart
-def add_product_to_cart(request, product_id, quantity=1):
-    # Create cart if it does not exists
-    if not request.session.get("cart", False):
-        request.session["cart"] = []
-    
-    # If item already in cart add to the quantity
-    cart = request.session["cart"]
-
-    for i, item in enumerate(cart):
-        if item["id"] == product_id:
-            cart[i]["quantity"] = item["quantity"] + quantity
-            request.session["cart"] = cart
-            return
-
-    cart.append({"id":product_id, "quantity":quantity})
-    request.session["cart"] = cart
-
-
 # Get all products from the users cart
 def get_cart(request):
     cart = request.session.get("cart", False)
@@ -115,6 +96,31 @@ def remove_product_from_cart(request, id):
     
     cart = [i for i in cart if not (i['id'] == id)]
     
+    request.session["cart"] = cart
+    return get_total_price(request)
+
+
+# Add a product to the users cart and return new total price
+def add_product_to_cart(request, product_id, quantity=1):
+    # Create cart if it does not exists
+    if not request.session.get("cart", False):
+        request.session["cart"] = []
+    
+    # If item already in cart add to the quantity
+    cart = request.session["cart"]
+
+    for i, item in enumerate(cart):
+        if item["id"] == product_id:
+            cart[i]["quantity"] += quantity
+
+            if cart[i]["quantity"] <= 0:
+                remove_product_from_cart(request, product_id)
+            else:
+                request.session["cart"] = cart
+            return get_total_price(request)
+
+    cart.append({"id":product_id, "quantity":quantity})
+
     request.session["cart"] = cart
     return get_total_price(request)
 

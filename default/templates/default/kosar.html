@@ -18,7 +18,7 @@
                         <h2><a href="{% url 'product' product_name=product.name %}">{{ product.name }}</a></h2>
                     </div>
                     <h3><strong>{{ product.price }} Ft</strong></h3>
-                    <p style="margin-right: 1rem"><input type="number" value="{{ product.quantity }}" min="1" style="width: 3rem"> db</p>
+                    <p style="margin-right: 1rem"><input type="number" value="{{ product.quantity }}" class="product-quantity" min="1" style="width: 3rem" data-product-id="{{ product.id }}" data-previous-quantity="{{ product.quantity }}"> db</p>
                     <a class="btn btn-danger remove-cart-btn" data-product-id="{{ product.id }}">Eltávolítás</a>
                 </div>
             {% endfor %}

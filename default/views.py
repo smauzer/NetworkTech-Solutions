@@ -84,8 +84,7 @@ def order_status_view(request, order_number):
 
 # Api
 def add_to_cart(request, product_id: int, quantity: int):
-    utils.add_product_to_cart(request, product_id, quantity)
-    return redirect("shop")
+    return HttpResponse(utils.add_product_to_cart(request, product_id, int(quantity)))
 
 def remove_from_cart(request, product_id: int):
     return HttpResponse(utils.remove_product_from_cart(request, product_id))
