@@ -8,7 +8,9 @@
 from django.shortcuts import render, redirect, HttpResponse
 
 from . import utils
-from .models import Category
+from .models import Category, OrderItem, Order
+import random
+
 import json
 
 
@@ -75,7 +77,66 @@ def cart_view(request):
 
 
 def payment_view(request):
-    return render(request, "default/fizetes.html")
+    if request.method == "POST":
+        request.session["cart"] = []
+
+        return redirect("order_status", order_number=random.randint(1000,9999))
+
+    #     fname = request.POST.get("fname", None)
+    #     lname = request.POST.get("lname", None)
+    #     company = request.POST.get("company", None)
+    #     taxnumber = request.POST.get("taxnumber", None)
+    #     email = request.POST.get("email", None)
+    #     phone = request.POST.get("phone", None)
+
+    #     invoice_country = request.POST.get("invoice-country", None)
+    #     invoice_postal = request.POST.get("invoice-postal", None)
+    #     invoice_city = request.POST.get("invoice-city", None)
+    #     invoice_address = request.POST.get("invoice-address", None)
+
+    #     shipping_country = request.POST.get("shipping-country", None)
+    #     shipping_postal = request.POST.get("shipping-postal", None)
+    #     shipping_city = request.POST.get("shipping-city", None)
+    #     shipping_address = request.POST.get("shipping-address", None)
+    #     message = request.POST.get("message", None)
+
+    #     card_name = request.POST.get("card-name", None)
+    #     card_number = request.POST.get("card-number", None)
+    #     card_exp_month = request.POST.get("card-exp-month", None)
+    #     card_exp_year = request.POST.get("card-exp-year", None)
+    #     card_cvc = request.POST.get("card-cvc", None)
+
+    #     cart = request.session["cart"]
+
+    #     order_price = utils.get_total_price(request)
+    #     shipping_price = 0 if shipping_country == "HUN" else 1290
+
+    #     Order.objects.create(
+    #         name=fname + " " + lname,
+    #         company = company,
+    #         taxnumber = taxnumber,
+    #         email=email,
+    #         phone=phone,
+    #         invoice_country = invoice_country,
+    #         invoice_postal = invoice_postal,
+    #         invoice_city = invoice_city,
+    #         invoice_address = invoice_address,
+    #         shipping_country = shipping_country,
+    #         shipping_postal = shipping_postal,
+    #         shipping_city = shipping_city,
+    #         shipping_address = shipping_address,
+    #         message = message,
+    #         order_price = order_price,
+    #         shipping_price = shipping_price,
+    #         total_price = order_price + shipping_price
+    #     )
+
+    context = {
+        "cart": utils.get_cart(request),
+        "total_price": utils.get_total_price(request)
+    }
+
+    return render(request, "default/fizetes.html", context)
 
 
 def order_status_view(request, order_number):

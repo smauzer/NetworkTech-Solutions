@@ -571,9 +571,8 @@ ul {
     color: #194c97;
 }
 
-/**/
+/*Global form*/
 form {
-    width: 100%;
     padding: 1rem;
     background-color: #d3d3d3;
 }
@@ -585,23 +584,41 @@ form input[type="submit"] {
 
 .form-inp {
     display: block;
-    width: 100%;
+    width: calc(100% - 0.6rem);
     resize: vertical;
+    padding: 0.3rem;
 }
 
 /*-Payment-*/
-.fiz-input{
-    width: 250px;
-    display: inline-block;
-    margin: 5px;
-    padding: 10px;
+
+input.invalid {
+    background-color: #ffdddd;
 }
 
-.fiz-border{
-    border: 2px solid #194c97;
-    border-radius: 3px;
-    background-color: aqua;
-    display: block;
-    margin-right: auto;
-    margin-left: auto;
+.tab {
+    display: none;
+}
+
+.step {
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbbbbb;
+    border: none;  
+    border-radius: 50%;
+    display: inline-block;
+    opacity: 0.5;
+}
+
+.step.active {
+    opacity: 1;
+}
+
+.step.finish {
+    background-color: #4972ad;
+}
+
+#payment-cart {
+    padding: 0 1rem;
+    background-color: #d3d3d3;
 }

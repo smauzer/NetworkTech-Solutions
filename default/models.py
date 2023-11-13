@@ -38,11 +38,22 @@ class Coupon(models.Model):
 class Order(models.Model):
     # Personal information
     name = models.CharField(max_length=100)
+    company = models.CharField(max_length=100, blank=True, null=True)
+    taxnumber = models.CharField(max_length=100, blank=True, null=True)
     email = models.EmailField()
+    phone = models.CharField(max_length=20)
+    
+    # Invoice information
+    invoice_country = models.CharField(max_length=3)
+    invoice_postal = models.IntegerField()
+    invoice_city = models.CharField(max_length=35)
+    invoice_address = models.CharField(max_length=100)
+
     # Shipping information
-    postal = models.IntegerField()
-    city = models.CharField(max_length=35)
-    address = models.CharField(max_length=100)
+    shipping_country = models.CharField(max_length=3)
+    shipping_postal = models.IntegerField()
+    shipping_city = models.CharField(max_length=35)
+    shipping_address = models.CharField(max_length=100)
     message = models.TextField(blank=True, null=True)
     # Price
     order_price = models.IntegerField()

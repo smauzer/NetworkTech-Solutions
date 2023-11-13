@@ -4,5 +4,13 @@
 {% block title %} Sikeres rendelés {% endblock %}
 
 {% block body %}
-    <h1>Sikeres rendelés: {{ order_number }}</h1>
+<section class="kapcs-banner page-section">
+    <div class="text-center">
+        <h2 class="section-title">Sikeres rendelés</h2>
+        <p class="section-subtitle" style="color: green;">A {{ order_number }} számű rendelést sikeresen megkaptuk!</p>
+    </div>
+    <div class="text-center">
+        <a href="{% url 'shop' %}" class="btn btn-primary">Vissza a webáruházba</a>
+    </div>
+</section>
 {% endblock %}

@@ -1,5 +1,6 @@
 {% extends "default/layout.html" %}
 {% load static %}
+{% load crispy_forms_tags %}
 
 {% block title %} Fizetés {% endblock %}
 
@@ -7,34 +8,168 @@
     <section class="page-section">
         <div class="text-center">
             <h2 class="section-title">Fizetés</h2>
-            <p class="section-subtitle">Fizetés kártyával.</p>
+            <p class="section-subtitle">Már csak pár lépés a rendelés véglegesítése!</p>
         </div>
         <div class="section-cont">
             <div class="section-left">
-                
-                <form action="#" method="POST">
-
-                    <div class="text-center fiz-border">
-                        
-                        <label for="Name">Név: </label>
-                        <input class="fiz-input" type="text" id="name" name="name" size="35" placeholder="A bankártyán lévő név." required autofocus>
-
-                        <label for="Card number">Kártyaszám: </label>
-                        <input class="fiz-input" type="text" size="35" placeholder="xxxx-xxxx-xxxx-xxxx" required>
-
-                        <label for="message">Lejárat: </label>
-                        <input class="fiz-input" type="text" size="35" placeholder="HÓ/ÉV" required>
-                        
-                        <label for="Delivery Address">Szállítási cím: </label>
-                        <input class="fiz-input" type="text" size="35" required>
-                        
-                        <label  for="Billing Address">Számlázási cím: </label>
-                        <input class="fiz-input" type="text" size="35" required>
-                        
-                        <input type="submit" class="btn btn-primary" value="Fizetés">
+                <form action="{% url 'payment' %}" method="POST" id="payment-form">
+                    {% csrf_token %}
+                    <div class="tab"><b>Alapvető adatok:</b>
+                        <p><input class="form-inp" type="text" placeholder="Vezetéknév" oninput="this.classList.remove('invalid');" name="fname"></p>
+                        <p><input class="form-inp" type="text" placeholder="Keresztnév" oninput="this.classList.remove('invalid');" name="lname"></p>
+                        <p><input class="form-inp" type="text" placeholder="Cégnév (nem kötelező)" oninput="this.classList.remove('invalid');" name="company"></p>
+                        <p><input class="form-inp" type="text" placeholder="Adószám (nem kötelező)" oninput="this.classList.remove('invalid');" name="taxnumber"></p>
+                        <p><input class="form-inp" type="email" placeholder="E-mail" oninput="this.classList.remove('invalid');" name="email"></p>
+                        <p><input class="form-inp" type="phone" placeholder="Telefonszám" oninput="this.classList.remove('invalid');" name="phone"></p>
+                    </div>
+                    <div class="tab"><b>Számlázási cím:</b>
+                        <p>
+                            <select name="invoice-country" id="invoice-country">
+                                <option value="" disabled>Ország</option>
+                                <option value="ALB">Albánia</option>
+                                <option value="AND">Andorra</option>
+                                <option value="AUT">Ausztria</option>
+                                <option value="BLR">Fehéroroszország</option>
+                                <option value="BEL">Belgium</option>
+                                <option value="BIH">Bosznia és Hercegovina</option>
+                                <option value="BGR">Bulgária</option>
+                                <option value="HRV">Horvátország</option>
+                                <option value="CYP">Ciprus</option>
+                                <option value="CZE">Cseh Köztársaság</option>
+                                <option value="DNK">Dánia</option>
+                                <option value="EST">Észtország</option>
+                                <option value="FIN">Finnország</option>
+                                <option value="FRA">Franciaország</option>
+                                <option value="DEU">Németország</option>
+                                <option value="GRC">Görögország</option>
+                                <option value="HUN" selected>Magyarország</option>
+                                <option value="ISL">Izland</option>
+                                <option value="IRL">Írország</option>
+                                <option value="ITA">Olaszország</option>
+                                <option value="LVA">Lettország</option>
+                                <option value="LIE">Liechtenstein</option>
+                                <option value="LTU">Litvánia</option>
+                                <option value="LUX">Luxemburg</option>
+                                <option value="MKD">Észak-Macedónia</option>
+                                <option value="MCO">Monaco</option>
+                                <option value="MNE">Montenegró</option>
+                                <option value="NLD">Hollandia</option>
+                                <option value="NOR">Norvégia</option>
+                                <option value="POL">Lengyelország</option>
+                                <option value="PRT">Portugália</option>
+                                <option value="ROU">Románia</option>
+                                <option value="RUS">Oroszország</option>
+                                <option value="SMR">San Marino</option>
+                                <option value="SRB">Szerbia</option>
+                                <option value="SVK">Szlovákia</option>
+                                <option value="SVN">Szlovénia</option>
+                                <option value="ESP">Spanyolország</option>
+                                <option value="SWE">Svédország</option>
+                                <option value="CHE">Svájc</option>
+                                <option value="UKR">Ukrajna</option>
+                                <option value="GBR">Egyesült Királyság</option>
+                                <option value="VAT">Vatikánváros</option>
+                            </select>
+                        </p>
+                        <p><input class="form-inp" type="number" placeholder="Irányítószám" oninput="this.classList.remove('invalid');" name="invoice-postal" id="invoice-postal"></p>
+                        <p><input class="form-inp" type="text" placeholder="Város" oninput="this.classList.remove('invalid');" name="invoice-city" id="invoice-city"></p>
+                        <p><input class="form-inp" type="text" placeholder="Utca, házszám" oninput="this.classList.remove('invalid');" name="invoice-address" id="invoice-address"></p>
+                    </div>
+                    <div class="tab"><b>Szállítási cím:</b>
+                        <p>
+                            <input type="checkbox" id="same-address" name="same-address" value="Same">
+                            <label for="same-address">Ugyan az mint a számlázási cím</label>
+                        </p>
+                        <p>
+                            <select name="shipping-country" id="shipping-country">
+                                <option value="" disabled>Ország</option>
+                                <option value="ALB">Albánia</option>
+                                <option value="AND">Andorra</option>
+                                <option value="AUT">Ausztria</option>
+                                <option value="BLR">Fehéroroszország</option>
+                                <option value="BEL">Belgium</option>
+                                <option value="BIH">Bosznia és Hercegovina</option>
+                                <option value="BGR">Bulgária</option>
+                                <option value="HRV">Horvátország</option>
+                                <option value="CYP">Ciprus</option>
+                                <option value="CZE">Cseh Köztársaság</option>
+                                <option value="DNK">Dánia</option>
+                                <option value="EST">Észtország</option>
+                                <option value="FIN">Finnország</option>
+                                <option value="FRA">Franciaország</option>
+                                <option value="DEU">Németország</option>
+                                <option value="GRC">Görögország</option>
+                                <option value="HUN" selected>Magyarország</option>
+                                <option value="ISL">Izland</option>
+                                <option value="IRL">Írország</option>
+                                <option value="ITA">Olaszország</option>
+                                <option value="LVA">Lettország</option>
+                                <option value="LIE">Liechtenstein</option>
+                                <option value="LTU">Litvánia</option>
+                                <option value="LUX">Luxemburg</option>
+                                <option value="MKD">Észak-Macedónia</option>
+                                <option value="MCO">Monaco</option>
+                                <option value="MNE">Montenegró</option>
+                                <option value="NLD">Hollandia</option>
+                                <option value="NOR">Norvégia</option>
+                                <option value="POL">Lengyelország</option>
+                                <option value="PRT">Portugália</option>
+                                <option value="ROU">Románia</option>
+                                <option value="RUS">Oroszország</option>
+                                <option value="SMR">San Marino</option>
+                                <option value="SRB">Szerbia</option>
+                                <option value="SVK">Szlovákia</option>
+                                <option value="SVN">Szlovénia</option>
+                                <option value="ESP">Spanyolország</option>
+                                <option value="SWE">Svédország</option>
+                                <option value="CHE">Svájc</option>
+                                <option value="UKR">Ukrajna</option>
+                                <option value="GBR">Egyesült Királyság</option>
+                                <option value="VAT">Vatikánváros</option>
+                            </select>
+                        </p>
+                        <p><input class="form-inp" type="number" placeholder="Irányítószám" oninput="this.classList.remove('invalid');" name="shipping-postal" id="shipping-postal"></p>
+                        <p><input class="form-inp" type="text" placeholder="Város" oninput="this.classList.remove('invalid');" name="shipping-city" id="shipping-city"></p>
+                        <p><input class="form-inp" type="text" placeholder="Utca, házszám" oninput="this.classList.remove('invalid');" name="shipping-address" id="shipping-address"></p>
+                        <textarea class="form-inp" name="message" id="message" placeholder="Üzenet"></textarea>
+                    </div>
+                    <div class="tab"><b>Bankkártya adatok:</b>
+                        <p><input class="form-inp" type="text" placeholder="Kártyán szereplő név" oninput="this.classList.remove('invalid');" name="card-name"></p>
+                        <p><input class="form-inp" type="text" placeholder="Bankkártyaszám" oninput="this.classList.remove('invalid');" name="card-number"></p>
+                        <p>
+                            <input style="display: inline-block; width: 40%" class="form-inp" type="text" placeholder="hh" oninput="this.classList.remove('invalid');" name="card-exp-month">/<input class="form-inp" style="display: inline-block; width: 40%" type="text" placeholder="éé" oninput="this.className = ''" name="card-exp-year">
+                        </p>
+                        <p><input class="form-inp" type="number" placeholder="CVC" oninput="this.classList.remove('invalid');" name="card-cvc"></p>
+                    </div>
+                    <div style="overflow:auto;">
+                        <div style="float:right;">
+                            <button type="button" id="prevBtn" onclick="nextPrev(-1)" class="btn btn-primary">< Vissza</button>
+                            <button type="button" id="nextBtn" onclick="nextPrev(1)" class="btn btn-primary">Következő ></button>
+                        </div>
+                    </div>
+                    <div style="text-align:center;margin-top:40px;">
+                        <span class="step"></span>
+                        <span class="step"></span>
+                        <span class="step"></span>
+                        <span class="step"></span>
+                    </div>
                 </form>
-                </div>
             </div>
-        </div>
+            <div class="section-right" id="payment-cart">
+                <h3>Kosár</h3>
+                <ul>
+                {% for product in cart %}
+                    <li>{{ product.quantity }}db <a href="{% url 'product' product_name=product.name %}">{{ product.name }}</a> {{ product.price }}Ft/db</li>
+                {% endfor %}
+                </ul>
+                <p style="margin: 0"><b>Termékek:</b> <span class="total-price">{{ total_price }}</span> Ft</p>
+                <p style="margin: 0"><b>Szállítás:</b> <span class="shipping-price">Ingyenes</span></p>
+                <p style="margin: 0"><b>Végösszeg:</b> <span class="final-price">{{ total_price }} Ft</span></p>
+            </div>
+        
     </section>
+{% endblock %}
+
+{% block scripts %}
+    <script src="{% static 'default/payment.js' %}"></script>
 {% endblock %}

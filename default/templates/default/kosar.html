@@ -27,7 +27,7 @@
                     <h2>Végösszeg:</h2>
                 </div>
                 <h2 style="margin-right: 1rem"><strong id="total-price">{{ total_price }} Ft</strong></h2>
-                <a href="{% url 'payment' %}" class="btn btn-primary">Fizetés</a>
+                <a {% if cart|length > 0 %}href="{% url 'payment' %}"{% endif %} class="btn btn-primary" >Fizetés</a>
             </div>
         </div>
     </section>
